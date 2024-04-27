@@ -56,11 +56,10 @@ app.post("/create", async(req,res)=>{
 app.get('/',async (req,res)=>{
     const Qry = `Select * from Robots`
     const dbResponse = await db.all(Qry)
-    res.send(dbResponse)
     return res.json(dbResponse)
 })
 
 
-app.listen(3001,()=>{
+app.listen(process.env.PORT || 3001,()=>{
     console.log(`Server running at http://localhost:3001`)
 })
